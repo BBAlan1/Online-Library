@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Добро пожаловать в библиотеку!</h2>
+
+<a class="button1" href="{{ url_for('add_book_page') }}">Добавить книгу</a>
+
+<!-- Форма поиска -->
+<form action="{{ url_for('search') }}" method="post">
+    <input type="text" name="query" placeholder="Поиск по названию или автору" required>
+    <button type="submit">Поиск</button>
+</form>
+
+
+
+
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Фото</th>
+        <th>Цена</th>
+        <th>Действие</th>
+    </tr>
+    {% for book in books.items %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>
+            <img src="{{ url_for('static', filename='uploads/' + book.image_path) }}" alt="Обложка" class="book-image">
+        </td>
+        <td>${{ book.price }}</td>
+        <td>
+            {% if book.user_id == current_user.id %}
+            <div style="display: flex; gap: 10px;">
+                <!-- Кнопка "Изменить" вместо "Продать" -->
+                <form action="{{ url_for('edit_book', id=book.id) }}" method="get">
+                    <button class="button1" type="submit">Изменить</button>
+                </form>
+                <form action="{{ url_for('delete_book', id=book.id) }}" method="post">
+                    <button class="button1" type="submit">Удалить</button>
+                </form>
+            </div>
+            {% else %}
+            <form action="{{ url_for('buy_book', id=book.id) }}" method="post" style="display:inline;">
+                <button class="button1" style="width: 50%" type="submit">Купить</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if books.has_next %}
+    <a href="{{ url_for('library', page=books.next_num) }}" class="continue-button">Продолжить</a>
+{% endif %}
+
+
+{% endblock %}

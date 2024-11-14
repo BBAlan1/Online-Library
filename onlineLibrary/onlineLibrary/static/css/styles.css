@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    
+    font-size: 30px;
+    background-color: #8396ff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    font-weight: 600;
+
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    font-size: 30px;
+    color: #c9defc;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+form {
+    margin-top: 20px;
+    padding: 15px;
+
+}
+
+form input, form button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+table {
+    border-radius: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+th, td {
+    width: 20%; /* Устанавливает равномерную ширину для каждого столбца */
+}
+
+table tr:hover {
+    background-color: #c8d0ff;
+}
+.button1 {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 16px;
+    color: #161616;
+    background-color: #f9f9f9; /* зеленый цвет кнопки */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #c9d6ff; 
+}
+
+.button1:hover {
+    background-color: #839ffd; /* более темный оттенок при наведении */
+}
+
+.continue-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #008CBA; /* синий цвет кнопки */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.continue-button:hover {
+    background-color: #007B9E; /* более темный оттенок при наведении */
+}
+
+.book-image {
+    width: 150px;       /* Устанавливаем ширину */
+    height: auto;       /* Высота будет подстроена автоматически */
+    object-fit: cover;  /* Заполняет контейнер, сохраняя пропорции */
+    border-radius: 5px; /* Добавляем небольшие закругленные углы */
+}

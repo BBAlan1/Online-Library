@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Редактировать книгу</h2>
+
+<form action="{{ url_for('edit_book', id=book.id) }}" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" value="{{ book.title }}" required>
+    <input type="text" name="author" value="{{ book.author }}" required>
+    <input type="number" name="price" step="0.01" value="{{ book.price }}" required>
+    <input type="file" name="image">
+    <button class="button1" type="submit">Сохранить изменения</button>
+</form>
+
+<a href="{{ url_for('library') }}" class="button1">Вернуться</a>
+{% endblock %}

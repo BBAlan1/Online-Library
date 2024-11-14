@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Добавить книгу</h2>
+
+<form action="{{ url_for('add_book') }}" method="post" enctype="multipart/form-data">
+    <label for="title">Название:</label>
+    <input type="text" name="title" id="title" required><br>
+
+    <label for="author">Автор:</label>
+    <input type="text" name="author" id="author" required><br>
+
+    <label for="price">Цена:</label>
+    <input type="number" name="price" id="price" step="0.01" required><br>
+
+    <label for="image">Изображение:</label>
+    <input type="file" name="image" id="image"><br><br>
+
+    <button class="button1" type="submit">Добавить</button>
+</form>
+
+<a class="button1" href="{{ url_for('library') }}">Вернуться в библиотеку</a>
+{% endblock %}
