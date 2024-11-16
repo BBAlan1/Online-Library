@@ -20,6 +20,7 @@
         <th>Фото</th>
         <th>Цена</th>
         <th>Действие</th>
+        <th>Документ</th>
     </tr>
     {% for book in books.items %}
     <tr>
@@ -44,6 +45,13 @@
             <form action="{{ url_for('buy_book', id=book.id) }}" method="post" style="display:inline;">
                 <button class="button1" style="width: 50%" type="submit">Купить</button>
             </form>
+            {% endif %}
+        </td>
+        <td>
+            {% if book.document_path %}
+                <a href="{{ url_for('static', filename='uploads/' + book.document_path) }}" target="_blank">Скачать документ</a>
+            {% else %}
+                Нет документа
             {% endif %}
         </td>
     </tr>

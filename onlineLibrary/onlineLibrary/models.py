@@ -19,3 +19,4 @@ class Book(db.Model):
     title = db.Column(db.String(200), nullable=False)
     author = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
+    document_path = db.Column(db.String(200),nullable=True)

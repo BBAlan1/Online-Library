@@ -31,6 +31,7 @@ class Book(db.Model):
     author = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
     image_path = db.Column(db.String(200), nullable=True)
+    document_path = db.Column(db.String(200), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Связь с пользователем
     creator = db.relationship('User', backref=db.backref('books', lazy=True))
 
@@ -110,7 +111,7 @@ def add_book_page():
 # Добавление книги
 @app.route('/add_book', methods=['POST'])
 @login_required
-def add_book():
+def add_book(file_document=None):
     title = request.form.get('title')
     author = request.form.get('author')
     price = float(request.form.get('price'))
@@ -122,7 +123,14 @@ def add_book():
         image_path = filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-    book = Book(title=title, author=author, price=price, user_id=current_user.id, image_path=image_path)
+    file = request.files.get('document')
+    document_path = None
+    if file:
+        doc_filename = secure_filename(file.filename)
+        document_path = doc_filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], doc_filename))
+
+    book = Book(title=title, author=author, price=price, user_id=current_user.id, image_path=image_path,document_path=document_path)
     db.session.add(book)
     db.session.commit()
     flash("Книга успешно добавлена.")
