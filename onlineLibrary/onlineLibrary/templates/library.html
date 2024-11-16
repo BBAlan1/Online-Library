@@ -2,6 +2,8 @@
 {% block content %}
 <h2>Добро пожаловать в библиотеку!</h2>
 
+<p>Ваш баланс: {{ current_user.balance }} $</p>
+
 <a class="button1" href="{{ url_for('add_book_page') }}">Добавить книгу</a>
 
 <!-- Форма поиска -->

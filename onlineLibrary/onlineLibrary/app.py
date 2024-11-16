@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import os
 import config
-
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -178,8 +177,6 @@ def delete_book(id):
     db.session.commit()
     flash("Книга успешно удалена.")
     return redirect(url_for('library'))
-
-# Покупка книги через банковскую карточку
 
 @app.route('/buy_book/<int:id>', methods=['GET', 'POST'])
 @login_required
