@@ -193,7 +193,6 @@ def buy_book(id):
         expiry_date = request.form['expiry_date']
         cvv = request.form['cvv']
 
-        # Проверка, хватает ли у пользователя средств на покупку
         if current_user.balance >= book.price:
             current_user.balance -= book.price
             book.user_id = current_user.id
