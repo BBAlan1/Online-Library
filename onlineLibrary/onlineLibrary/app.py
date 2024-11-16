@@ -179,8 +179,6 @@ def delete_book(id):
     flash("Книга успешно удалена.")
     return redirect(url_for('library'))
 
-# Покупка книги через банковскую карточку
-
 @app.route('/buy_book/<int:id>', methods=['GET', 'POST'])
 @login_required
 def buy_book(id):
@@ -196,7 +194,6 @@ def buy_book(id):
         expiry_date = request.form['expiry_date']
         cvv = request.form['cvv']
 
-        # Проверка, хватает ли у пользователя средств на покупку
         if current_user.balance >= book.price:
             current_user.balance -= book.price
             book.user_id = current_user.id
