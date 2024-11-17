@@ -13,18 +13,13 @@ material. Moreover, promoting reading culture is crucial for educational and cul
 advancement, and this project’s digital approach aligns well with these goals.
 
 
-**Competitor Analysis: Kazakhstan’s Market Landscape**
+**Competitor Analysis: Online Libraries in Kazakhstan**
 
-Currently, the online library and book retail market in Kazakhstan features platforms such as
-Litres and Meloman.kz, both of which are fairly established. However, most of these platforms
-focus on popular fiction and mainstream genres, with limited offerings in academic, cultural, and
-specialized books. Our project’s competitive edge lies in differentiating itself with a broader
-range of localized content, including books by Kazakh authors and works on Kazakh cultural and
-historical topics. Additionally, our platform will incorporate a flexible pricing strategy that
-includes discounts for students and academic partners, further enhancing accessibility. These
-distinguishing features aim to capture market share among niche readers and academic audiences
-who seek specialized content not readily available through existing providers.
-
+Kazakhstan’s current online book market includes platforms like Litres, Marwin and Meloman.kz, which are quite well-known. 
+However, these mainly focus on popular fiction and do not offer a lot of academic or cultural books.
+Our online library will be different because users will be able to list and sell their own books, making it similar to an OLX-style marketplace for books. 
+We will also use a flexible pricing model, including student discounts and academic partnerships, making our library more affordable. T
+hese unique features are designed to attract niche readers and students who need specialized content that is hard to find elsewhere.
 
 **Target Audience (Project Auditory)**
 
@@ -43,35 +38,19 @@ resource, accessible from any location, meeting various reading and research nee
 Kazakhstan.
 
 
-**Project Features (Functionality and Design Ideas)**
+**Project Features (Functionality and Design Ideas)**  
+Our platform will have the following key features:  
+- A clean and modern design for easy navigation through books and categories.  
+- Advanced filters and search options to help users quickly find books by genre, author, language, or publication date.  
+- A recommendation system that uses machine learning to suggest books based on user preferences and reading history.  
+- Book previews, allowing users to read excerpts before deciding to buy, which is especially useful for academic books.  
+- Reliable protection of user data.  
+- Payment options available only through credit cards.  
+- Community features, such as book ratings and user feedback, to help others make informed choices.  
 
-To achieve a robust, user-friendly experience, our platform will be developed with the following
-key features:
-A modern, intuitive design will enable seamless navigation through books and categories.
-Advanced filters, sorting options, and search capabilities will enhance book discovery by genre,
-author, language, or publication date.
-Leveraging machine learning, our recommendation engine will provide users with tailored book
-suggestions based on their reading patterns and ratings, adding value to their experience and
-promoting engagement.
-Books will include sample previews, allowing users to read excerpts before committing to a
-purchase. This is particularly beneficial for academic and expensive books where users need
-more insight into content.
-Robust authentication methods will protect user data, while user profiles will allow individuals
-to create wish lists, track reading history, and save books for future reference.
-To ensure accessibility, the platform will integrate multiple payment methods, including credit
-cards, mobile payments, and bank transfers, tailored to Kazakhstani users' preferences.
-A responsive, mobile-first design will enable users to engage with the library across devices,
-with a roadmap to develop a dedicated mobile app for enhanced accessibility.
-Users will have the option to leave feedback, rate books, and participate in the library
-community, helping other users make informed choices.
+**Conclusion**  
 
-
-**Conclusion**
-
-This online library project will cater to diverse reading interests in Kazakhstan, addressing
-specific gaps in the availability of specialized and localized content. Through its unique features
-and competitive pricing, this platform has the potential to establish itself as a key player in
-Kazakhstan’s digital library market, promoting a reading culture and supporting educational
-initiatives. By blending functionality, design, and user experience, we aim to create a library
-platform that not only meets the needs of its users but also adapts to the evolving digital
-landscape.
+This online library project will meet the diverse reading needs of people in Kazakhstan, filling specific gaps in the availability of specialized and localized content. 
+By allowing users to sell their own books and offering flexible pricing options, we aim to stand out in the market. 
+Our affordable, easy-to-use platform will be a valuable resource for students, professionals, and casual readers, encouraging a culture of reading and supporting education. 
+With a focus on practical features and a user-friendly design for PC, we are committed to building a reliable, engaging online library that keeps up with the digital world.
