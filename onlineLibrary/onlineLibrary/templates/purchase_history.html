@@ -1,0 +1,31 @@
+<!-- purchase_history.html -->
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>История покупок</h2>
+
+{% if purchases %}
+    <table>
+        <thead>
+            <tr>
+                <th>Название книги</th>
+                <th>Автор</th>
+                <th>Цена</th>
+                <th>Дата покупки</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase in purchases %}
+            <tr>
+                <td>{{ purchase.book.title }}</td>
+                <td>{{ purchase.book.author }}</td>
+                <td>{{ purchase.price }} $</td>
+                <td>{{ purchase.purchase_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>У вас нет покупок.</p>
+{% endif %}
+{% endblock %}

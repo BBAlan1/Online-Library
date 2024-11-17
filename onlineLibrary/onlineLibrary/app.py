@@ -34,6 +34,17 @@ class Book(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Связь с пользователем
     creator = db.relationship('User', backref=db.backref('books', lazy=True))
 
+
+class Purchase(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
+    purchase_date = db.Column(db.DateTime, default=db.func.current_timestamp())
+    price = db.Column(db.Float, nullable=False)
+
+    user = db.relationship('User', backref=db.backref('purchases', lazy=True))
+    book = db.relationship('Book', backref=db.backref('purchases', lazy=True))
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -210,12 +221,23 @@ def buy_book(id):
             current_user.balance -= book.price
             book.user_id = current_user.id
             db.session.commit()
+
+            purchase = Purchase(user_id=current_user.id, book_id=book.id, price=book.price)
+            db.session.add(purchase)
+            db.session.commit()
+
             flash("Вы успешно купили книгу через карту.")
         else:
             flash("Недостаточно средств для покупки.")
         return redirect(url_for('library'))
     
     return render_template('buy_book.html', book=book)
+
+@app.route('/purchase_history')
+@login_required
+def purchase_history():
+    purchases = Purchase.query.filter_by(user_id=current_user.id).all()
+    return render_template('purchase_history.html', purchases=purchases)
 
 # Продажа книги
 @app.route('/sell_book/<int:id>', methods=['POST'])
