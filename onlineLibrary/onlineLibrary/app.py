@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, request
+from flask import Flask, render_template, redirect, url_for, flash, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import os
@@ -37,6 +37,12 @@ class Book(db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+@app.route('/set_language/<language>')
+def set_language(language):
+    session['language'] = language
+    return redirect(request.referrer)
+
 
 # Главная страница перенаправляет на страницу регистрации
 @app.route('/')
@@ -156,6 +162,13 @@ def edit_book(id):
             image_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename))
             file.save(image_path)
             book.image_path = 'uploads/' + file.filename
+
+        document = request.files.get('document')
+        if document:
+            document_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(document.filename))
+            document.save(document_path)
+            book.document_path = 'uploads/' + document.filename
+
         
         db.session.commit()
         flash("Книга успешно обновлена.")
