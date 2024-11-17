@@ -38,11 +38,6 @@ class Book(db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@app.route('/set_language/<language>')
-def set_language(language):
-    session['language'] = language
-    return redirect(request.referrer)
-
 
 # Главная страница перенаправляет на страницу регистрации
 @app.route('/')
