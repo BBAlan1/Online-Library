@@ -218,6 +218,42 @@ def sell_book(id):
         flash("Вы не можете продать книгу, которой не владеете.")
     return redirect(url_for('library'))
 
+@app.route('/topup_balance', methods=['GET', 'POST'])
+@login_required
+def topup_balance():
+    if request.method == 'POST':
+        try:
+            card_number = request.form['card_number']
+            expiry_date = request.form['expiry_date']
+            cvv = request.form['cvv']
+            amount = float(request.form['amount'])
+
+            if len(card_number) != 16 or not card_number.isdigit():
+                flash("Некорректный номер карты. Введите 16 цифр.")
+                return redirect(url_for('topup_balance'))
+
+            if len(expiry_date) != 5 or expiry_date[2] != '/':
+                flash("Некорректный срок действия. Используйте формат MM/YY.")
+                return redirect(url_for('topup_balance'))
+
+            if len(cvv) != 3 or not cvv.isdigit():
+                flash("Некорректный CVV. Введите 3 цифры.")
+                return redirect(url_for('topup_balance'))
+
+            if amount <= 0:
+                flash("Сумма должна быть положительным числом.")
+                return redirect(url_for('topup_balance'))
+
+            current_user.balance += amount
+            db.session.commit()
+            flash(f"Баланс успешно пополнен на {amount} $!")
+        except ValueError:
+            flash("Введите корректное число.")
+        return redirect(url_for('library'))
+
+    return render_template('topup_balance.html')
+
+
 # Запуск приложения
 if __name__ == '__main__':
     with app.app_context():
