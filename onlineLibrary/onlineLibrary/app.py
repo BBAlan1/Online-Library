@@ -218,7 +218,10 @@ def buy_book(id):
             db.session.commit()
 
             purchase = Purchase(user_id=current_user.id, book_id=book.id, price=book.price)
+            purchase.book_id = book.id
             db.session.add(purchase)
+
+            book.user_id = current_user.id
             db.session.commit()
 
             flash("Вы успешно купили книгу через карту.")
